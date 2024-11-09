@@ -1,9 +1,15 @@
 <script lang="ts">
 	import Messages from '$lib/Messages.svelte';
-	import Login from '../lib/Login.svelte';
+	import Login from '$lib/Login.svelte';
+	import ThemeToggle from '$lib/ThemeToggle.svelte';
 </script>
 
-<h1>Chat App</h1>
+<div class="p-6">
+	<div class="mb-4 flex gap-6">
+		<h1 class="font bold text-6xl underline">Chat App</h1>
+		<ThemeToggle />
+	</div>
 
-<Login />
-<Messages />
+	<Login />
+	<Messages />
+</div>

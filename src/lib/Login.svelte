@@ -13,8 +13,7 @@
 			const data = {
 				username,
 				password,
-				passwordConfirm: password,
-				name: 'hi mom!'
+				passwordConfirm: password
 			};
 			const createdUser = await pb.collection('users').create(data);
 			await login();
@@ -28,17 +27,19 @@
 	}
 </script>
 
-{#if $currentUser}
-	<p>
-		Signed in as {$currentUser.username}
-		<button on:click={signOut}>Sign Out</button>
-	</p>
-{:else}
-	<form on:submit|preventDefault>
-		<input placeholder="Username" type="text" bind:value={username} />
+<div class="mb-4">
+	{#if $currentUser}
+		<p>
+			Signed in as {$currentUser.username}
+			<button class="btn btn-accent" on:click={signOut}>Sign Out</button>
+		</p>
+	{:else}
+		<form on:submit|preventDefault>
+			<input placeholder="Username" type="text" bind:value={username} />
 
-		<input placeholder="Password" type="password" bind:value={password} />
-		<button on:click={signUp}>Sign Up</button>
-		<button on:click={login}>Login</button>
-	</form>
-{/if}
+			<input placeholder="Password" type="password" bind:value={password} />
+			<button on:click={signUp}>Sign Up</button>
+			<button on:click={login}>Login</button>
+		</form>
+	{/if}
+</div>
