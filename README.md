@@ -1,29 +1,16 @@
-# sv
+## Sample project - ChatApp
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A full-stack real-time chat application using Svelte and Pocketbase
 
-## Creating a project
+## Project Requirements
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Frontend: Develop using Svelte
+2. Backend: Implement with Pocketbase
+3. Hosting: Deploy on a Linux server (you can use a free tier on any cloud provider)
+4. Features:
+   - User authentication
+   - Real-time messaging
+   - Basic user interface for chat functionality
 
 ## Building
 
