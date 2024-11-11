@@ -26,6 +26,13 @@
 
 	async function signUp() {
 		try {
+			const result = await pb.health.check();
+			console.log('Connected to PocketBase:', result);
+		} catch (err) {
+			console.error('PocketBase Error:', err);
+		}
+
+		try {
 			const data = {
 				username,
 				password,
