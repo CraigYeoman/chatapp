@@ -1,5 +1,6 @@
+<!-- https://daisyui.com/components/theme-controller/ -->
 <script lang="ts">
-	type Theme = 'default' | 'retro' | 'cyberpunk' | 'valentine' | 'aqua';
+	type Theme = 'default' | 'dark' | 'cyberpunk' | 'synthwave' | 'nord';
 
 	let isOpen = false;
 
@@ -23,7 +24,6 @@
 		if (event.target instanceof HTMLInputElement) {
 			const selectedTheme = event.target.value as Theme;
 			document.documentElement.setAttribute('data-theme', selectedTheme);
-			// Removed the isOpen = false line so it stays open after selection
 		}
 	}
 </script>
@@ -46,14 +46,14 @@
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<ul
 		tabindex="0"
-		class="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl"
+		class="dropdown-content z-[1] w-52 rounded-box bg-base-300 p-2 shadow-2xl"
 		class:hidden={!isOpen}
 	>
 		<li>
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
 				aria-label="Default"
 				value="default"
 				on:change={handleThemeChange}
@@ -63,9 +63,9 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-				aria-label="Retro"
-				value="retro"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
+				aria-label="Dark"
+				value="dark"
 				on:change={handleThemeChange}
 			/>
 		</li>
@@ -73,7 +73,7 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
 				aria-label="Cyberpunk"
 				value="cyberpunk"
 				on:change={handleThemeChange}
@@ -83,9 +83,9 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-				aria-label="Valentine"
-				value="valentine"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
+				aria-label="Synthwave"
+				value="synthwave"
 				on:change={handleThemeChange}
 			/>
 		</li>
@@ -93,9 +93,9 @@
 			<input
 				type="radio"
 				name="theme-dropdown"
-				class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-				aria-label="Aqua"
-				value="aqua"
+				class="theme-controller btn btn-ghost btn-sm btn-block justify-start"
+				aria-label="Nord"
+				value="nord"
 				on:change={handleThemeChange}
 			/>
 		</li>

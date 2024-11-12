@@ -4,9 +4,9 @@
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
 </script>
 
-<div class="p-6">
+<div class="p-8">
 	<div class="mb-4 flex gap-6">
-		<h1 class="font bold text-6xl underline">Chat App</h1>
+		<h1 class="text-5xl font-bold">Chat App</h1>
 		<ThemeToggle />
 	</div>
 

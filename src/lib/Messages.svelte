@@ -2,18 +2,20 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { currentUser, pb } from './pocketbase';
 	import { format, parseISO } from 'date-fns';
+	import { intervalWithOptions } from 'date-fns/fp';
 
 	let newMessage: string;
 	let messages = [];
 	let unsubscribe: () => void;
 
+	// fetch messages when component mounts - runs once in the beginning of the component lifecycle
 	onMount(async () => {
 		const resultList = await pb.collection('messages').getList(1, 50, {
-			sort: 'created',
+			sort: '-created',
 			expand: 'user'
 		});
 		messages = resultList.items;
-
+		// subscribe to collection to update in real-time
 		unsubscribe = await pb.collection('messages').subscribe('*', async ({ action, record }) => {
 			if (action === 'create') {
 				const user = await pb.collection('users').getOne(record.user);
@@ -47,9 +49,10 @@
 	</form>
 
 	<div class="messages">
+		<!-- loops over messages and has message id as a key -->
 		{#each messages as message (message.id)}
 			<div class="chat chat-start">
-				<div class="chat-image avatar">
+				<div class="avatar chat-image">
 					<div class="w-10 rounded-full">
 						<img
 							alt="avatar"
